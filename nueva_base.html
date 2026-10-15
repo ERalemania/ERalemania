@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5c400">
+  <meta name="description" content="Sitio web de la Escuela República de Alemania, Rengo.">
+  <title>Escuela República de Alemania</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --amarillo: #f5c400;
+      --amarillo-claro: #fff4b8;
+      --gris: #e5e5e5;
+      --gris-oscuro: #5f6368;
+      --negro: #202124;
+      --rojo: #c62828;
+      --blanco: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--negro);
+      background: #f7f7f7;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .school-topbar {
+      min-height: 8px;
+      background: linear-gradient(90deg, var(--amarillo) 0 60%, var(--rojo) 60% 75%, var(--negro) 75%);
+    }
+    .site-header {
+      background: var(--blanco);
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 3px 14px rgb(0 0 0 / 7%);
+      position: relative;
+      z-index: 10;
+    }
+    .navbar { padding: .75rem 0; }
+    .brand-wrap { display: flex; align-items: center; gap: .85rem; min-width: 0; }
+    .brand-logo {
+      width: 66px; height: 66px; object-fit: contain; flex: 0 0 auto;
+    }
+    .brand-title {
+      font-weight: 800; font-size: clamp(1rem, 2.2vw, 1.35rem);
+      line-height: 1.15; margin: 0; letter-spacing: -.025em;
+    }
+    .brand-subtitle {
+      display: block; margin-top: .3rem; color: var(--gris-oscuro);
+      font-size: .82rem; font-weight: 500; letter-spacing: .04em;
+    }
+    .navbar-toggler { border: 2px solid var(--negro); }
+    .navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgb(245 196 0 / 45%); }
+    .navbar-nav { gap: .4rem; }
+    .navbar-nav .nav-link {
+      padding: .7rem 1rem !important; border-radius: .65rem;
+      font-weight: 700; color: var(--negro); transition: background .2s, color .2s;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+      background: var(--amarillo-claro); color: var(--negro);
+    }
+    .navbar-nav .nav-link.active {
+      background: var(--amarillo); color: var(--negro);
+    }
+    main { flex: 1; }
+    .hero {
+      position: relative; overflow: hidden; padding: clamp(3rem, 8vw, 6.5rem) 0;
+      background: var(--negro); color: var(--blanco);
+      isolation: isolate;
+    }
+    .hero::before {
+      content: ""; position: absolute; z-index: -1; width: 390px; height: 390px;
+      right: -110px; top: -160px; border-radius: 50%;
+      border: 58px solid rgb(245 196 0 / 18%);
+    }
+    .hero::after {
+      content: ""; position: absolute; z-index: -1; width: 250px; height: 250px;
+      right: 12%; bottom: -190px; border-radius: 50%;
+      background: rgb(198 40 40 / 35%);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--amarillo); color: var(--negro);
+      padding: .45rem .8rem; border-radius: 999px;
+      font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .hero h2 {
+      max-width: 780px; margin: 1.25rem 0 1rem;
+      font-size: clamp(2.1rem, 5vw, 4.3rem); line-height: 1.06;
+      font-weight: 900; letter-spacing: -.045em;
+    }
+    .hero h2 span { color: var(--amarillo); }
+    .hero p {
+      max-width: 650px; color: #e3e3e3; font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.8; margin-bottom: 1.7rem;
+    }
+    .btn-school {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .85rem 1.25rem; border-radius: .65rem; font-weight: 800;
+      text-decoration: none; transition: transform .2s, background .2s;
+    }
+    .btn-school:hover { transform: translateY(-2px); }
+    .btn-yellow { background: var(--amarillo); color: var(--negro); }
+    .btn-yellow:hover { background: #ffda32; color: var(--negro); }
+    .btn-outline-light { border: 2px solid #fff; color: #fff; }
+    .btn-outline-light:hover { background: #fff; color: var(--negro); }
+    .welcome-section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+    .section-kicker {
+      color: var(--rojo); font-weight: 800; text-transform: uppercase;
+      font-size: .78rem; letter-spacing: .12em;
+    }
+    .section-title {
+      margin: .5rem 0 1rem; font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 900; letter-spacing: -.03em;
+    }
+    .welcome-copy { color: #555; max-width: 760px; line-height: 1.8; }
+    .info-card {
+      height: 100%; padding: 1.5rem; background: #fff;
+      border: 1px solid #e4e4e4; border-top: 5px solid var(--amarillo);
+      border-radius: 1rem; box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
+    }
+    .info-card.red { border-top-color: var(--rojo); }
+    .info-card.gray { border-top-color: #777; }
+    .card-symbol {
+      display: grid; place-items: center; width: 46px; height: 46px;
+      margin-bottom: 1rem; border-radius: .8rem; background: var(--amarillo-claro);
+      font-size: 1.4rem;
+    }
+    .info-card h3 { font-size: 1.1rem; font-weight: 850; }
+    .info-card p { margin: 0; color: #5f6368; line-height: 1.7; }
+    footer { background: #202124; color: #fff; border-top: 5px solid var(--rojo); }
+    .footer-inner { padding: 2rem 0; }
+    .footer-heading { margin-bottom: .75rem; font-weight: 850; color: var(--amarillo); }
+    .footer-address { color: #e1e1e1; line-height: 1.8; margin: 0; }
+    .social-links { display: flex; flex-wrap: wrap; gap: .65rem; }
+    .social-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 42px; padding: .6rem .9rem; border: 1px solid #656565;
+      border-radius: .6rem; color: #fff; text-decoration: none; font-weight: 700;
+    }
+    .social-link:hover { background: var(--amarillo); border-color: var(--amarillo); color: var(--negro); }
+    .footer-bottom { padding: .9rem 0; background: #151515; color: #bbb; font-size: .85rem; }
+    @media (max-width: 991.98px) {
+      .navbar-collapse { padding-top: .85rem; }
+      .navbar-nav .nav-link { padding: .75rem 1rem !important; }
+      .hero { text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+    }
+    @media (max-width: 575.98px) {
+      .brand-logo { width: 52px; height: 52px; }
+      .brand-subtitle { font-size: .72rem; }
+      .hero { padding: 3.25rem 0; }
+      .hero .btn-school { width: 100%; }
+      .footer-inner { padding: 1.6rem 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="school-topbar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand brand-wrap" href="Vista/Principal/Index.html" aria-label="Escuela República de Alemania, inicio">
+          <img class="brand-logo" src="../../Resources/Logo_cua-290x290.png" alt="Logo de la escuela">
+          <span>
+            <span class="brand-title">Escuela República de Alemania</span>
+            <span class="brand-subtitle">Rengo · Comunidad educativa</span>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir o cerrar menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index_responsivo.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Reglamento.html">Reglamento</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    
+  </main>
+
+  <footer id="contacto">
+    <div class="container footer-inner">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h2 class="footer-heading h5">Redes sociales</h2>
+          <div class="social-links">
+            <a class="social-link" href="https://www.facebook.com/escuela.republica.de.alemania.rengo/" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+            <a class="social-link" href="https://www.instagram.com/esc.republica.de.alemania/?hl=es" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="footer-heading h5">Dirección y contacto</h2>
+          <p class="footer-address">
+            Av. José Ramírez 540, Rengo<br>
+            <strong>Director subrogante:</strong><br>
+            Rodrigo Eduardo Monzalve Hernández
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">Escuela República de Alemania · Rengo</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
