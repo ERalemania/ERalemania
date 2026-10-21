@@ -329,6 +329,23 @@
       font-weight: 700;
     }
 
+    .foto-funcionario {
+      display: block;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 4px solid #ffdc35;
+      background-color: #f2f2f2;
+    }
+
+    .card-funcionario {
+      text-align: center;
+    }
+
+
     .social-link:hover {
       background: var(--amarillo);
       border-color: var(--amarillo);
@@ -393,93 +410,94 @@
         transition: none !important;
       }
     }
+
     .funcionarios-section {
-        padding: 50px 20px;
-        background: #f2f2f2;
-        min-height: 70vh;
+      padding: 50px 20px;
+      background: #f2f2f2;
+      min-height: 70vh;
     }
 
     .titulo-funcionarios {
-        text-align: center;
-        color: #222;
-        margin-bottom: 10px;
+      text-align: center;
+      color: #222;
+      margin-bottom: 10px;
     }
 
     .subtitulo-funcionarios {
-        text-align: center;
-        color: #555;
-        margin-bottom: 35px;
+      text-align: center;
+      color: #555;
+      margin-bottom: 35px;
     }
 
     .grid-funcionarios {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 25px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
     }
 
     .card-funcionario {
-        background: #fff;
-        border-radius: 12px;
-        border-top: 6px solid #d71920;
-        padding: 25px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        overflow-wrap: anywhere;
+      background: #fff;
+      border-radius: 12px;
+      border-top: 6px solid #d71920;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow-wrap: anywhere;
     }
 
     .card-funcionario:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
     }
 
     .card-funcionario h2 {
-        font-size: 1.25rem;
-        color: #222;
-        margin: 0 0 15px;
+      font-size: 1.25rem;
+      color: #222;
+      margin: 0 0 15px;
     }
 
     .card-funcionario p {
-        color: #555;
-        line-height: 1.6;
-        margin: 8px 0;
+      color: #555;
+      line-height: 1.6;
+      margin: 8px 0;
     }
 
     .card-funcionario .cargo {
-        display: inline-block;
-        background: #ffdc35;
-        color: #222;
-        font-weight: bold;
-        padding: 6px 10px;
-        border-radius: 5px;
-        margin-bottom: 10px;
+      display: inline-block;
+      background: #ffdc35;
+      color: #222;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
 
     .card-funcionario a {
-        color: #b5121b;
-        text-decoration: none;
+      color: #b5121b;
+      text-decoration: none;
     }
 
     .card-funcionario a:hover {
-        text-decoration: underline;
+      text-decoration: underline;
     }
 
     .mensaje-carga {
-        grid-column: 1 / -1;
-        text-align: center;
+      grid-column: 1 / -1;
+      text-align: center;
     }
 
     /* Adaptación a tablets */
     @media (max-width: 900px) {
-        .grid-funcionarios {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
+      .grid-funcionarios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     /* Adaptación a celulares */
     @media (max-width: 600px) {
-        .grid-funcionarios {
-            grid-template-columns: 1fr;
-        }
+      .grid-funcionarios {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -560,70 +578,100 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-async function cargarFuncionarios() {
-    const contenedor = document.getElementById("lista-funcionarios");
 
-    try {
-        // Cambia esta ruta por la ubicación real de tu JSON.
+    async function cargarFuncionarios() {
+      const contenedor = document.getElementById("lista-funcionarios");
+
+      try {
         const respuesta = await fetch("./funcionarios.json");
 
         if (!respuesta.ok) {
-            throw new Error("No se pudo cargar el JSON");
+          throw new Error("No se pudo cargar el JSON");
         }
 
         const funcionarios = await respuesta.json();
 
         if (!Array.isArray(funcionarios)) {
-            throw new Error("El JSON no contiene una lista de funcionarios");
+          throw new Error("El JSON no contiene una lista de funcionarios");
         }
 
         contenedor.replaceChildren();
 
-        if (funcionarios.length === 0) {
-            contenedor.textContent = "No hay funcionarios registrados.";
-            return;
+        // Mostrar solo funcionarios activos
+        const activos = funcionarios.filter(funcionario =>
+          String(funcionario.Estado).toLowerCase() === "true"
+        );
+
+        if (activos.length === 0) {
+          contenedor.textContent = "No hay funcionarios disponibles.";
+          return;
         }
 
-        funcionarios.forEach(funcionario => {
-            const card = document.createElement("article");
-            card.className = "card-funcionario";
+        activos.forEach(funcionario => {
+          const card = document.createElement("article");
+          card.className = "card-funcionario";
 
-            const nombre = document.createElement("h2");
-            nombre.textContent = funcionario.nombre || "Sin nombre";
+          // Fotografía
+          if (funcionario.URL_Imagen) {
+            const imagen = document.createElement("img");
+            imagen.src = funcionario.URL_Imagen;
+            imagen.alt = `Fotografía de ${funcionario.Nombre || "funcionario"} `;
+            imagen.className = "foto-funcionario";
+            imagen.loading = "lazy";
 
-            const cargo = document.createElement("span");
-            cargo.className = "cargo";
-            cargo.textContent = funcionario.cargo || "Sin cargo";
+            imagen.onerror = () => imagen.remove();
 
-            const asignatura = document.createElement("p");
-            asignatura.textContent =
-                "Asignatura: " + (funcionario.asignatura || "No especificada");
+            card.appendChild(imagen);
+          }
 
-            const correo = document.createElement("p");
-            correo.append("Correo: ");
+          // Nombre
+          const nombre = document.createElement("h2");
+          nombre.textContent = funcionario.Nombre || "Sin nombre";
 
-            if (funcionario.correo) {
-                const enlace = document.createElement("a");
-                enlace.href = "mailto:" + funcionario.correo;
-                enlace.textContent = funcionario.correo;
-                correo.appendChild(enlace);
-            } else {
-                correo.append("No disponible");
-            }
+          // Cargo
+          const cargo = document.createElement("span");
+          cargo.className = "cargo";
+          cargo.textContent =
+            funcionario.Cargo && funcionario.Cargo !== "-"
+              ? funcionario.Cargo
+              : "Sin cargo";
 
-            card.append(nombre, cargo, asignatura, correo);
-            contenedor.appendChild(card);
+          // Asignatura
+          const asignatura = document.createElement("p");
+          asignatura.textContent =
+            "Asignatura: " +
+            (funcionario.Asignatura && funcionario.Asignatura !== "-"
+              ? funcionario.Asignatura
+              : "No especificada");
+
+          // Correo
+          const correo = document.createElement("p");
+          correo.append("Correo: ");
+
+          if (funcionario.Correo && funcionario.Correo !== "-") {
+            const enlace = document.createElement("a");
+            enlace.href = `mailto:${funcionario.Correo} `;
+            enlace.textContent = funcionario.Correo;
+            correo.appendChild(enlace);
+          } else {
+            correo.append("No disponible");
+          }
+
+          card.append(nombre, cargo, asignatura, correo);
+          contenedor.appendChild(card);
         });
 
-    } catch (error) {
-        console.error(error);
+      } catch (error) {
+        console.error("Error al cargar funcionarios:", error);
         contenedor.textContent =
-            "No se pudo cargar la lista de funcionarios.";
+          "No se pudo cargar la lista de funcionarios.";
+      }
     }
-}
 
-cargarFuncionarios();
-</script>
+    cargarFuncionarios();
+
+
+  </script>
 </body>
 
 </html>
