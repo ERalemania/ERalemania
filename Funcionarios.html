@@ -522,6 +522,44 @@
       border-radius: 5px;
     }
 
+    /* Contenedor de funcionarios: 4 tarjetas por fila */
+    .lista-funcionarios {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      width: 100%;
+      margin-bottom: 35px;
+    }
+
+    /* Cada tarjeta ocupa su columna */
+    .lista-funcionarios .card {
+      width: 100%;
+      min-width: 0;
+      height: 100%;
+      margin: 0;
+    }
+
+    /* Imágenes de las tarjetas */
+    .lista-funcionarios .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Tablets: 2 funcionarios por fila */
+    @media (max-width: 992px) {
+      .lista-funcionarios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* Celulares: 1 funcionario por fila */
+    @media (max-width: 576px) {
+      .lista-funcionarios {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Adaptación a celulares */
     @media (max-width: 576px) {
       .titulo-seccion {
@@ -572,16 +610,16 @@
           Conoce al equipo de nuestra comunidad educativa.
         </p>
         <h2 class="titulo-seccion">DIRECCIÓN</h2>
-        <div id="lista-direccion" class="lista-funcionarios"></div>
+<div id="lista-direccion" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">DOCENTES</h2>
-        <div id="lista-docentes" class="lista-funcionarios"></div>
+<h2 class="titulo-seccion">DOCENTES</h2>
+<div id="lista-docentes" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">ASISTENTE DE AULA</h2>
-        <div id="lista-aula" class="lista-funcionarios"></div>
+<h2 class="titulo-seccion">ASISTENTE DE AULA</h2>
+<div id="lista-aula" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">ASISTENTE DE LA EDUCACIÓN</h2>
-        <div id="lista-educacion" class="lista-funcionarios"></div>
+<h2 class="titulo-seccion">ASISTENTE DE LA EDUCACIÓN</h2>
+<div id="lista-educacion" class="lista-funcionarios"></div>
         <div id="lista-funcionarios" class="grid-funcionarios">
           <p class="mensaje-carga">Cargando funcionarios...</p>
         </div>
