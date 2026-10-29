@@ -218,5 +218,192 @@
     "Asignatura": "-",
     "Correo": "lilian.roa@eralemania.cl",
     "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "21",
+    "PNombre": "Beatriz",
+    "SNombre": "Alejandra",
+    "PApellido": "Tobar",
+    "SApellido": "Gonzales",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "beatriz.tobar@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "22",
+    "PNombre": "Sebastiàn",
+    "SNombre": "Alex",
+    "PApellido": "Abarca",
+    "SApellido": "Lizama",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "sebastian.abarca@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "23",
+    "PNombre": "Jorge",
+    "SNombre": "Sebastiàn",
+    "PApellido": "Arenas",
+    "SApellido": "Cartajena",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "jorge.arenas@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "24",
+    "PNombre": "Alejandro",
+    "SNombre": "Antonio",
+    "PApellido": "Olguin",
+    "SApellido": "Lobos",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "alejandro.olguin@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "25",
+    "PNombre": "Juan",
+    "SNombre": "Pablo",
+    "PApellido": "Guitierrez",
+    "SApellido": "Carreño",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "juan.guitierrez@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "26",
+    "PNombre": "Alejandro",
+    "SNombre": "Osvaldo",
+    "PApellido": "Soto",
+    "SApellido": "Cruz",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "alejandro.soto@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "27",
+    "PNombre": "Paula",
+    "SNombre": "Jimena",
+    "PApellido": "Droguett",
+    "SApellido": "Sandoval",
+    "Cargo": "Docente",
+    "Asignatura": "-",
+    "Correo": "paula.droguett@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "28",
+    "PNombre": "Yoendris",
+    "SNombre": "Yunior",
+    "PApellido": "Solis",
+    "SApellido": "Garcia",
+    "Cargo": "Encargado Informatica",
+    "Asignatura": "-",
+    "Correo": "eraenlace@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "29",
+    "PNombre": "Gabriel",
+    "SNombre": "Augusto",
+    "PApellido": "Pino",
+    "SApellido": "Vitta",
+    "Cargo": "Docente",
+    "Asignatura": "Musica",
+    "Correo": "gabriel.pino@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "30",
+    "PNombre": "Sergio",
+    "SNombre": "Gonzalo",
+    "PApellido": "Peña",
+    "SApellido": "Meza",
+    "Cargo": "Docente",
+    "Asignatura": "Musica",
+    "Correo": "sergio.peña@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "31",
+    "PNombre": "María",
+    "SNombre": "Angélica",
+    "PApellido": "Ramírez",
+    "SApellido": "Reyez",
+    "Cargo": "Docente",
+    "Asignatura": "Religion",
+    "Correo": "maría.ramírez@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "32",
+    "PNombre": "Ximena",
+    "SNombre": "Del Carmen",
+    "PApellido": "Escobar",
+    "SApellido": "Manríquez",
+    "Cargo": "Docente",
+    "Asignatura": "Religion",
+    "Correo": "ximena.escobar@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "33",
+    "PNombre": "Mariana",
+    "SNombre": "Francisca",
+    "PApellido": "Rojas",
+    "SApellido": "Torres",
+    "Cargo": "Docente PIE",
+    "Asignatura": "-",
+    "Correo": "mariana.rojas@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "34",
+    "PNombre": "Morela",
+    "SNombre": " ",
+    "PApellido": "Fernandez",
+    "SApellido": "Zambrano",
+    "Cargo": "Docente PIE",
+    "Asignatura": "-",
+    "Correo": "morela.fernandez@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "35",
+    "PNombre": "Joselyn",
+    "SNombre": "Soledad",
+    "PApellido": "Mendez",
+    "SApellido": "Colil",
+    "Cargo": "Docente PIE",
+    "Asignatura": "-",
+    "Correo": "joselyn.mendez@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "36",
+    "PNombre": "Selma",
+    "SNombre": "Fernanda",
+    "PApellido": "Rivera",
+    "SApellido": "Diaz",
+    "Cargo": "Docente PIE",
+    "Asignatura": "-",
+    "Correo": "selma.rivera@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
+  },
+  {
+    "id": "37",
+    "PNombre": "Elizabeth",
+    "SNombre": "Daniela",
+    "PApellido": "Fuentes",
+    "SApellido": "Orrego",
+    "Cargo": "Docente PIE",
+    "Asignatura": "-",
+    "Correo": "elizabeth.fuentes@eralemania.cl",
+    "URLImagen": "https://i.postimg.cc/BQpQKycd/Imagen-de-Muestras.png"
   }
 ]
