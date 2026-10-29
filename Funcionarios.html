@@ -329,17 +329,15 @@
       font-weight: 700;
     }
 
+
     .foto-funcionario {
       display: block;
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
       margin: 0 auto 20px;
-      border: 4px solid #ffdc35;
-      background-color: #f2f2f2;
     }
+
 
     .card-funcionario {
       text-align: center;
@@ -508,8 +506,7 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
       <div class="container">
-        <a class="navbar-brand brand-wrap" href="/ERalemania/"
-          aria-label="Escuela República de Alemania, inicio">
+        <a class="navbar-brand brand-wrap" href="/ERalemania/" aria-label="Escuela República de Alemania, inicio">
           <img class="brand-logo" src="Resources/Logo_cua-290x290.png" alt="Logo de la escuela">
           <span>
             <span class="brand-title">Escuela República de Alemania</span>
@@ -569,7 +566,7 @@
             Correo: esalemania@gmail.com
           </p>
         </div>
-        
+
       </div>
     </div>
     <div class="footer-bottom">
@@ -579,6 +576,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+
 
     async function cargarFuncionarios() {
       const contenedor = document.getElementById("lista-funcionarios");
@@ -598,25 +596,30 @@
 
         contenedor.replaceChildren();
 
-        // Mostrar solo funcionarios activos
-        const activos = funcionarios.filter(funcionario =>
-          String(funcionario.Estado).toLowerCase() === "true"
-        );
-
-        if (activos.length === 0) {
+        if (funcionarios.length === 0) {
           contenedor.textContent = "No hay funcionarios disponibles.";
           return;
         }
 
-        activos.forEach(funcionario => {
+        funcionarios.forEach(funcionario => {
           const card = document.createElement("article");
           card.className = "card-funcionario";
 
+          // Nombre completo: nombres y apellidos
+          const nombreCompleto = [
+            funcionario.PNombre,
+            funcionario.SNombre,
+            funcionario.PApellido,
+            funcionario.SApellido
+          ]
+            .filter(valor => valor && valor.trim() !== "")
+            .join(" ");
+
           // Fotografía
-          if (funcionario.URL_Imagen) {
+          if (funcionario.URLImagen && funcionario.URLImagen !== "-") {
             const imagen = document.createElement("img");
-            imagen.src = funcionario.URL_Imagen;
-            imagen.alt = `Fotografía de ${funcionario.Nombre || "funcionario"} `;
+            imagen.src = funcionario.URLImagen;
+            imagen.alt = `Fotografía de ${nombreCompleto || "funcionario"}`;
             imagen.className = "foto-funcionario";
             imagen.loading = "lazy";
 
@@ -627,7 +630,7 @@
 
           // Nombre
           const nombre = document.createElement("h2");
-          nombre.textContent = funcionario.Nombre || "Sin nombre";
+          nombre.textContent = nombreCompleto || "Sin nombre";
 
           // Cargo
           const cargo = document.createElement("span");
@@ -637,13 +640,25 @@
               ? funcionario.Cargo
               : "Sin cargo";
 
-          // Asignatura
-          const asignatura = document.createElement("p");
-          asignatura.textContent =
-            "Asignatura: " +
-            (funcionario.Asignatura && funcionario.Asignatura !== "-"
-              ? funcionario.Asignatura
-              : "No especificada");
+          card.append(nombre, cargo);
+
+          // Asignatura: solo para cargos que comienzan con "Docente"
+          const esDocente = String(funcionario.Cargo || "")
+            .trim()
+            .toLowerCase()
+            .startsWith("docente");
+
+          if (
+            esDocente &&
+            funcionario.Asignatura &&
+            funcionario.Asignatura !== "-"
+          ) {
+            const asignatura = document.createElement("p");
+            asignatura.textContent =
+              "Asignatura: " + funcionario.Asignatura;
+
+            card.appendChild(asignatura);
+          }
 
           // Correo
           const correo = document.createElement("p");
@@ -651,14 +666,14 @@
 
           if (funcionario.Correo && funcionario.Correo !== "-") {
             const enlace = document.createElement("a");
-            enlace.href = `mailto:${funcionario.Correo} `;
+            enlace.href = `mailto:${funcionario.Correo}`;
             enlace.textContent = funcionario.Correo;
             correo.appendChild(enlace);
           } else {
             correo.append("No disponible");
           }
 
-          card.append(nombre, cargo, asignatura, correo);
+          card.appendChild(correo);
           contenedor.appendChild(card);
         });
 
@@ -670,6 +685,7 @@
     }
 
     cargarFuncionarios();
+
 
 
   </script>
