@@ -497,6 +497,39 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Títulos de las secciones de funcionarios */
+    .titulo-seccion {
+      color: #222222;
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 40px 0 25px;
+      padding: 15px 10px;
+      border-bottom: 4px solid #f2c300;
+      position: relative;
+    }
+
+    /* Línea roja decorativa bajo el título */
+    .titulo-seccion::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: #c62828;
+      margin: 10px auto 0;
+      border-radius: 5px;
+    }
+
+    /* Adaptación a celulares */
+    @media (max-width: 576px) {
+      .titulo-seccion {
+        font-size: 1.35rem;
+        margin: 30px 0 20px;
+        padding: 12px 5px;
+      }
+    }
   </style>
 </head>
 
@@ -538,7 +571,17 @@
         <p class="subtitulo-funcionarios">
           Conoce al equipo de nuestra comunidad educativa.
         </p>
+        <h2 class="titulo-seccion">DIRECCIÓN</h2>
+        <div id="lista-direccion" class="lista-funcionarios"></div>
 
+        <h2 class="titulo-seccion">DOCENTES</h2>
+        <div id="lista-docentes" class="lista-funcionarios"></div>
+
+        <h2 class="titulo-seccion">ASISTENTE DE AULA</h2>
+        <div id="lista-aula" class="lista-funcionarios"></div>
+
+        <h2 class="titulo-seccion">ASISTENTE DE LA EDUCACIÓN</h2>
+        <div id="lista-educacion" class="lista-funcionarios"></div>
         <div id="lista-funcionarios" class="grid-funcionarios">
           <p class="mensaje-carga">Cargando funcionarios...</p>
         </div>
@@ -577,9 +620,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
 
-
     async function cargarFuncionarios() {
-      const contenedor = document.getElementById("lista-funcionarios");
+      const contenedores = {
+        direccion: document.getElementById("lista-direccion"),
+        docentes: document.getElementById("lista-docentes"),
+        aula: document.getElementById("lista-aula"),
+        educacion: document.getElementById("lista-educacion")
+      };
 
       try {
         const respuesta = await fetch("./funcionarios.json");
@@ -591,34 +638,51 @@
         const funcionarios = await respuesta.json();
 
         if (!Array.isArray(funcionarios)) {
-          throw new Error("El JSON no contiene una lista de funcionarios");
+          throw new Error("El JSON no contiene una lista");
         }
 
-        contenedor.replaceChildren();
+        Object.values(contenedores).forEach(contenedor => {
+          if (!contenedor) {
+            throw new Error("Falta uno de los contenedores HTML");
+          }
 
-        if (funcionarios.length === 0) {
-          contenedor.textContent = "No hay funcionarios disponibles.";
-          return;
-        }
+          contenedor.replaceChildren();
+        });
 
         funcionarios.forEach(funcionario => {
+          const seccion = obtenerSeccion(funcionario.Cargo);
+
+          // Si el cargo no coincide con ningún filtro, no se clasifica.
+          if (!seccion || !contenedores[seccion]) {
+            console.warn(
+              "Cargo sin clasificar:",
+              funcionario.Cargo,
+              funcionario
+            );
+            return;
+          }
+
           const card = document.createElement("article");
           card.className = "card-funcionario";
 
-          // Nombre completo: nombres y apellidos
           const nombreCompleto = [
             funcionario.PNombre,
             funcionario.SNombre,
             funcionario.PApellido,
             funcionario.SApellido
           ]
-            .filter(valor => valor && valor.trim() !== "")
+            .filter(valor =>
+              valor && String(valor).trim() !== ""
+            )
             .join(" ");
 
-          // Fotografía
-          if (funcionario.URLImagen && funcionario.URLImagen !== "-") {
+          const urlImagen = String(
+            funcionario.URLImagen || ""
+          ).trim();
+
+          if (urlImagen && urlImagen !== "-") {
             const imagen = document.createElement("img");
-            imagen.src = funcionario.URLImagen;
+            imagen.src = urlImagen;
             imagen.alt = `Fotografía de ${nombreCompleto || "funcionario"}`;
             imagen.className = "foto-funcionario";
             imagen.loading = "lazy";
@@ -628,11 +692,9 @@
             card.appendChild(imagen);
           }
 
-          // Nombre
           const nombre = document.createElement("h2");
           nombre.textContent = nombreCompleto || "Sin nombre";
 
-          // Cargo
           const cargo = document.createElement("span");
           cargo.className = "cargo";
           cargo.textContent =
@@ -642,51 +704,124 @@
 
           card.append(nombre, cargo);
 
-          // Asignatura: solo para cargos que comienzan con "Docente"
-          const esDocente = String(funcionario.Cargo || "")
-            .trim()
-            .toLowerCase()
-            .startsWith("docente");
+          // Asignatura únicamente en la sección de docentes.
+          if (seccion === "docentes") {
+            const asignatura = String(
+              funcionario.Asignatura || ""
+            ).trim();
 
-          if (
-            esDocente &&
-            funcionario.Asignatura &&
-            funcionario.Asignatura !== "-"
-          ) {
-            const asignatura = document.createElement("p");
-            asignatura.textContent =
-              "Asignatura: " + funcionario.Asignatura;
-
-            card.appendChild(asignatura);
+            if (asignatura && asignatura !== "-") {
+              const p = document.createElement("p");
+              p.textContent = "Asignatura: " + asignatura;
+              card.appendChild(p);
+            }
           }
 
-          // Correo
           const correo = document.createElement("p");
           correo.append("Correo: ");
 
-          if (funcionario.Correo && funcionario.Correo !== "-") {
+          const email = String(funcionario.Correo || "").trim();
+
+          if (email && email !== "-") {
             const enlace = document.createElement("a");
-            enlace.href = `mailto:${funcionario.Correo}`;
-            enlace.textContent = funcionario.Correo;
+            enlace.href = `mailto:${email}`;
+            enlace.textContent = email;
             correo.appendChild(enlace);
           } else {
             correo.append("No disponible");
           }
 
           card.appendChild(correo);
-          contenedor.appendChild(card);
+          contenedores[seccion].appendChild(card);
+        });
+
+        // Aviso cuando alguna sección no tiene funcionarios.
+        Object.values(contenedores).forEach(contenedor => {
+          if (contenedor.children.length === 0) {
+            contenedor.textContent =
+              "No hay funcionarios clasificados en esta sección.";
+          }
         });
 
       } catch (error) {
         console.error("Error al cargar funcionarios:", error);
-        contenedor.textContent =
-          "No se pudo cargar la lista de funcionarios.";
+
+        Object.values(contenedores).forEach(contenedor => {
+          if (contenedor) {
+            contenedor.textContent =
+              "No se pudo cargar la lista de funcionarios.";
+          }
+        });
       }
     }
 
+    function normalizarCargo(cargo) {
+      return String(cargo || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .replace(/\s+/g, " ")
+        .toUpperCase();
+    }
+
+    function obtenerSeccion(cargo) {
+      const c = normalizarCargo(cargo);
+
+      // DIRECCIÓN
+      if (
+        /\bDIRECTOR\b/.test(c) ||
+        c.includes("INSPECTORA GENERAL") ||
+        c.includes("JEFA UTP") ||
+        c === "UTP" ||
+        c.includes("ENCARGADA DE CONVIVENCIA") ||
+        c.includes("ENCARGADO DE CONVIVENCIA")
+      ) {
+        return "direccion";
+      }
+
+      // DOCENTES
+      if (
+        c.includes("DOCENTE") ||
+        c.includes("PROFESOR") ||
+        c.includes("PROFESORA") ||
+        c.includes("EDUCADOR DIFERENCIAL")
+      ) {
+        return "docentes";
+      }
+
+      // ASISTENTE DE AULA
+      if (c.includes("ASISTENTE DE AULA")) {
+        return "aula";
+      }
+
+      // ASISTENTES DE LA EDUCACIÓN
+      const cargosApoyo = [
+        "FONOAUDIOLOG",
+        "KINESIOLOG",
+        "PSICOLOG",
+        "SECRETARIA",
+        "TRABAJADORA SOCIAL",
+        "TRABAJADOR SOCIAL",
+        "ENCARGADA BIBLIOTECA",
+        "ENCARGADO BIBLIOTECA",
+        "INSPECTORA DE PATIO",
+        "INSPECTOR DE PATIO",
+        "AUXILIAR DE SERVICIO",
+        "PORTERA",
+        "PORTERO",
+        "NOCHERO",
+        "NOCHERA",
+        "ENCARGADO INFORMATICA"
+      ];
+
+      if (cargosApoyo.some(cargo => c.includes(cargo))) {
+        return "educacion";
+      }
+
+      return null;
+    }
+
     cargarFuncionarios();
-
-
 
   </script>
 </body>
