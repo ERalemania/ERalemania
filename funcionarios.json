@@ -1,398 +1,222 @@
 [
   {
-    "Id": "1",
-    "Nombre": "Michelle Paulina Abarca Abarca",
-    "Cargo": "-",
+    "id": "1",
+    "PNombre": "Rodrigo",
+    "SNombre": "Eduardo",
+    "PApellido": "Monzalve",
+    "SApellido": "Hernández",
+    "Cargo": "Director",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "rodrigo.monzalve@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "2",
-    "Nombre": "Sebastián Alex Abarca Lizama",
-    "Cargo": "-",
+    "id": "2",
+    "PNombre": "Sandra",
+    "SNombre": "De Las Mercedes",
+    "PApellido": "Martines",
+    "SApellido": "Zuñiga",
+    "Cargo": "Inspectora General",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "inspectora.general@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "3",
-    "Nombre": "Valentina Alejandra Alvarado Abarca",
-    "Cargo": "-",
+    "id": "3",
+    "PNombre": "Sonia",
+    "SNombre": "Genoveva",
+    "PApellido": "Reyes",
+    "SApellido": "Quintero",
+    "Cargo": "Jefa UTP",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "sonia.reyes@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "4",
-    "Nombre": "Cristian Alejandro Arancibia Moraga",
-    "Cargo": "-",
+    "id": "4",
+    "PNombre": "Karla",
+    "SNombre": "Andrea",
+    "PApellido": "Guzmán",
+    "SApellido": "Cid",
+    "Cargo": "Encargado De Convivencia",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "karla.guzaman@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "5",
-    "Nombre": "Jorge Sebastián Arenas Cartajena",
-    "Cargo": "-",
+    "id": "5",
+    "PNombre": "María",
+    "SNombre": "Alejandra",
+    "PApellido": "Torres",
+    "SApellido": "Guajardo",
+    "Cargo": "Docente Parvulo",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "maria.torres@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "6",
-    "Nombre": "Guillermo Enrique Arrendondo Reyes",
-    "Cargo": "-",
+    "id": "6",
+    "PNombre": "María",
+    "SNombre": "José",
+    "PApellido": "Nuñez",
+    "SApellido": "Pérez",
+    "Cargo": "Docente Parvulo",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "maria.nuñez@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "7",
-    "Nombre": "Carolina Alenjandra Beanavides Maturana",
-    "Cargo": "-",
+    "id": "7",
+    "PNombre": "Hemelina",
+    "SNombre": "Angelica",
+    "PApellido": "Gonzalez",
+    "SApellido": "Veliz",
+    "Cargo": "Docente Parvulo",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "angelica.gonzalez@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "8",
-    "Nombre": "Paula Jimena Droguett Sandoval",
-    "Cargo": "-",
+    "id": "8",
+    "PNombre": "Paola",
+    "SNombre": "Andrea",
+    "PApellido": "Lantadilla",
+    "SApellido": "Lantadilla",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "paola.andrea@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "9",
-    "Nombre": "Ximena Del Carmen Escobar Manríquez",
-    "Cargo": "-",
+    "id": "9",
+    "PNombre": "Michelle",
+    "SNombre": "Paulina",
+    "PApellido": "Abarca",
+    "SApellido": "Abarca",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "michelle.abarca@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "10",
-    "Nombre": "Morela Fernandez Zambrano",
-    "Cargo": "-",
+    "id": "10",
+    "PNombre": "Solange",
+    "SNombre": "Betzebe",
+    "PApellido": "Henriquez",
+    "SApellido": "Mallias",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "solange.henriquez@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "11",
-    "Nombre": "Elizaabeth Daniela Fuentes Orrego",
-    "Cargo": "-",
+    "id": "11",
+    "PNombre": "Monserrat",
+    "SNombre": "Antonia",
+    "PApellido": "Leiva",
+    "SApellido": "Videla",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "monserrat.leiva@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "12",
-    "Nombre": "Yesenia Denisse Fuentes Villarroel",
-    "Cargo": "-",
+    "id": "12",
+    "PNombre": "Julia",
+    "SNombre": "Enriqueta",
+    "PApellido": "Ibarra",
+    "SApellido": "Rojas",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "julia.ibarra@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "13",
-    "Nombre": "Isidora Alejandra Galleguillos Cartagena",
-    "Cargo": "-",
+    "id": "13",
+    "PNombre": "Valentina",
+    "SNombre": "Alejandra",
+    "PApellido": "Alvarado",
+    "SApellido": "Abarca",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "valentina.alvarado@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "14",
-    "Nombre": "Hemelina Angélica González Véliz",
-    "Cargo": "-",
+    "id": "14",
+    "PNombre": "Johanna",
+    "SNombre": "Marcela",
+    "PApellido": "Miranda",
+    "SApellido": "Maldonado",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "johanna.miranda@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "15",
-    "Nombre": "Jasna Soledad Gutiérrez Becerra",
-    "Cargo": "-",
+    "id": "15",
+    "PNombre": "Jasna",
+    "SNombre": "Soledad",
+    "PApellido": "Gutiérrez",
+    "SApellido": "Becerra",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "jasna.gutierrez",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "16",
-    "Nombre": "Juan Pablo Gutíerrez Carreño",
-    "Cargo": "-",
+    "id": "16",
+    "PNombre": "Isidora",
+    "SNombre": "Alejandra",
+    "PApellido": "Galleguillos",
+    "SApellido": "Cartagena",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "isidora.galleguillos@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "17",
-    "Nombre": "Karla Andrea Guzmán Cid",
-    "Cargo": "-",
+    "id": "17",
+    "PNombre": "Joselyn",
+    "SNombre": "Macarena",
+    "PApellido": "Palma",
+    "SApellido": "Sanhueza",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "joselyn.palma@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "18",
-    "Nombre": "Solange Betzabé Henríquez Mallíaz",
-    "Cargo": "-",
+    "id": "18",
+    "PNombre": "Cristian",
+    "SNombre": "Alejandro",
+    "PApellido": "Arancibia",
+    "SApellido": "Moraga",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "cristian.arancibia@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "19",
-    "Nombre": "Gonzalo Sebastián Gallegos Moena",
-    "Cargo": "-",
+    "id": "19",
+    "PNombre": "Alexis",
+    "SNombre": "Rogers",
+    "PApellido": "Rosales",
+    "SApellido": "lezana",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
+    "Correo": "alexis.rosales@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   },
   {
-    "Id": "20",
-    "Nombre": "Julia Enriqueta Ibarra Rojas",
-    "Cargo": "-",
+    "id": "20",
+    "PNombre": "Lilian",
+    "SNombre": "Clarisa",
+    "PApellido": "Roa",
+    "SApellido": "Melita",
+    "Cargo": "Docente",
     "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "21",
-    "Nombre": "Paola Andrea Lantadilla Lantadilla",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "22",
-    "Nombre": "Monserrat Antonia Leiva Videla",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "23",
-    "Nombre": "Tabata Amalia Lineros Leyton",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "24",
-    "Nombre": "Sandra De Las Mercedes Martínez Zúñiga",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "25",
-    "Nombre": "Jocelyn Soledad Méndez Colil",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "26",
-    "Nombre": "Johanna Marcela Miranda Maldonado",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "27",
-    "Nombre": "Rodrigo Eduardo Monzalve Hernández",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "28",
-    "Nombre": "María José Núñez Pérez",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "29",
-    "Nombre": "Alejandro Antonio Olguín Lobos",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "30",
-    "Nombre": "Joselyn Macarena Palma Sanhueza",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "31",
-    "Nombre": "Selma Fernanda Parra Ilabaca",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "32",
-    "Nombre": "Sergio Gonzalo Peña Meza",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "33",
-    "Nombre": "Gabriel Augusto Peña Meza",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "34",
-    "Nombre": "María Angélica Ramírez Reyes",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "35",
-    "Nombre": "Sonia Genoveva Reyes Quintero",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "36",
-    "Nombre": "Camila Fernanda Rivera Díaz",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "37",
-    "Nombre": "Lilian Clarisa Roa Melita",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "38",
-    "Nombre": "Mariana Francisca Rojas Torres",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "39",
-    "Nombre": "Alexis Rogers Rosales Lezana",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "40",
-    "Nombre": "Yoendris Yunior Solis Garcia",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "41",
-    "Nombre": "Alejandro Osvaldo Soto Cruz",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "42",
-    "Nombre": "Beatriz Alejandra Tobar González",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "43",
-    "Nombre": "María Alejandra Torres Guajardo",
-    "Cargo": "-",
-    "Asignatura": "-",
-    "Correo": "-",
-    "URL_Imagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg",
-    "Estado": "true"
-  },
-  {
-    "Id": "44",
-    "Nombre": "Diego Armando Carrasco Albornoz",
-    "Cargo": "Practicante",
-    "Asignatura": "Informática",
-    "Correo": "diego.carrasco@eralemania.cl",
-    "URL_Imagen": "https://i.pinimg.com/236x/58/f5/03/58f503421af5de29cc8a2afeb766e9d5.jpg",
-    "Estado": "true"
+    "Correo": "lilian.roa@eralemania.cl",
+    "URLImagen": "https://i.pinimg.com/236x/48/eb/a8/48eba8991518232ce2dbe2d420b33d54.jpg"
   }
 ]
