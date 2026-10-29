@@ -754,21 +754,26 @@
             }
           }
 
-          const correo = document.createElement("p");
-          correo.append("Correo: ");
+          // Correo
+            const correo = document.createElement("p");
+            correo.append("Correo: ");
 
-          const email = String(funcionario.Correo || "").trim();
+            const email = String(funcionario.Correo || "").trim();
 
-          if (email && email !== "-") {
-            const enlace = document.createElement("a");
-            enlace.href = `mailto:${email}`;
-            enlace.textContent = email;
-            correo.appendChild(enlace);
-          } else {
-            correo.append("No disponible");
-          }
+            if (email !== "" && email !== "-") {
+                const enlace = document.createElement("a");
 
-          card.appendChild(correo);
+                enlace.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+                enlace.target = "_blank";
+                enlace.rel = "noopener noreferrer";
+                enlace.textContent = email;
+
+                correo.appendChild(enlace);
+            } else {
+                correo.append("No disponible");
+            }
+
+            card.appendChild(correo);
           contenedores[seccion].appendChild(card);
         });
 
