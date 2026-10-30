@@ -512,7 +512,7 @@
       align-items: center;
       justify-content: center;
       padding: 10px 18px;
-      
+
       border-radius: 8px;
       background: #f5c400;
       color: #202124;
@@ -544,7 +544,7 @@
       justify-content: center;
       width: 50px;
       height: 50px;
-      
+
       border-radius: 50%;
       background: #f5c400;
       color: #202124;
@@ -659,6 +659,8 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="nuevo_reglamento.html">Reglamento</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="Funcionarios.html">Funcionarios</a>
             </li>
           </ul>
@@ -828,25 +830,25 @@
           }
 
           // Correo
-            const correo = document.createElement("p");
-            correo.append("Correo: ");
+          const correo = document.createElement("p");
+          correo.append("Correo: ");
 
-            const email = String(funcionario.Correo || "").trim();
+          const email = String(funcionario.Correo || "").trim();
 
-            if (email !== "" && email !== "-") {
-                const enlace = document.createElement("a");
+          if (email !== "" && email !== "-") {
+            const enlace = document.createElement("a");
 
-                enlace.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
-                enlace.target = "_blank";
-                enlace.rel = "noopener noreferrer";
-                enlace.textContent = email;
+            enlace.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+            enlace.target = "_blank";
+            enlace.rel = "noopener noreferrer";
+            enlace.textContent = email;
 
-                correo.appendChild(enlace);
-            } else {
-                correo.append("No disponible");
-            }
+            correo.appendChild(enlace);
+          } else {
+            correo.append("No disponible");
+          }
 
-            card.appendChild(correo);
+          card.appendChild(correo);
           contenedores[seccion].appendChild(card);
         });
 
