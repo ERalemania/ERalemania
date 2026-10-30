@@ -155,6 +155,7 @@
 
       background: rgba(20, 20, 20, 0.58);
     }
+
     .hero1 {
       position: relative;
       overflow: hidden;
@@ -189,6 +190,7 @@
 
       background: rgba(20, 20, 20, 0.58);
     }
+
     .hero2 {
       position: relative;
       overflow: hidden;
@@ -223,7 +225,7 @@
 
       background: rgba(20, 20, 20, 0.58);
     }
-    
+
 
     .eyebrow {
       display: inline-flex;
@@ -414,6 +416,42 @@
       font-size: .85rem;
     }
 
+    /* Botón fijo para volver al inicio */
+    .btn-volver-arriba {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 50px;
+      height: 50px;
+
+     
+      border-radius: 50%;
+
+      background: #f5c400;
+      color: #202124;
+
+      font-size: 25px;
+      font-weight: 900;
+      text-decoration: none;
+
+      box-shadow: 0 3px 12px rgb(0 0 0 / 25%);
+      transition: background .2s, transform .2s;
+    }
+
+    /* Efecto al pasar el mouse */
+    .btn-volver-arriba:hover,
+    .btn-volver-arriba:focus {
+      background: #ffda32;
+      color: #202124;
+      transform: translateY(-3px);
+    }
+
     @media (max-width: 991.98px) {
       .navbar-collapse {
         padding-top: .85rem;
@@ -468,7 +506,7 @@
   </style>
 </head>
 
-<body>
+<body id="inicio">
   <div class="school-topbar" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -512,12 +550,14 @@
         <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
           <a class="btn-school btn-yellow" href="nuevo_reglamento.html">Consultar reglamento <span
               aria-hidden="true">→</span></a>
+          <a class="btn-school btn-outline-light" href="#Nosotros">Nosotros</a>
+          <a class="btn-school btn-outline-light" href="#nuestra-comunidad">Conócenos</a>
           <a class="btn-school btn-outline-light" href="#contacto">Conócenos</a>
         </div>
       </div>
     </section>
 
-    <section class="welcome-section">
+    <section class="welcome-section" id="Nosotros">
       <div class="container">
         <div class="row align-items-end g-3 mb-4">
           <div class="col-lg-8">
@@ -527,13 +567,14 @@
           </div>
         </div>
     </section>
-    <section class="hero1">
+    <section class="hero1" id="nuestra-comunidad">
       <div class="container">
         <div class="row align-items-end g-3 mb-4">
           <div class="col-lg-8">
             <div class="section-kicker">Nuestra comunidad</div>
             <h2 class="section-title">Una escuela para aprender y crecer</h2>
-            <p class="welcome-copy mb-0" style="color: white;">Encuentra aquí información importante para estudiantes, familias y toda nuestra
+            <p class="welcome-copy mb-0" style="color: white;">Encuentra aquí información importante para estudiantes,
+              familias y toda nuestra
               comunidad escolar.</p>
           </div>
         </div>
@@ -541,7 +582,7 @@
           <div class="col-12 col-md-6 col-lg-4">
             <article class="info-card">
               <div class="card-symbol" aria-hidden="true">📚</div>
-              <h3  style="color: hsl(0, 0%, 0%);">Aprendizaje</h3>
+              <h3 style="color: hsl(0, 0%, 0%);">Aprendizaje</h3>
               <p>Un lugar para descubrir conocimientos, desarrollar habilidades y aprender cada día.</p>
             </article>
           </div>
@@ -593,6 +634,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <a class="btn-volver-arriba" href="#inicio" aria-label="Volver al inicio" title="Volver arriba">
+    ↑
+  </a>
 </body>
 
 </html>
