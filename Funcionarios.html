@@ -498,6 +498,70 @@
       }
     }
 
+    /* Navegación rápida entre las cuatro secciones */
+    .navegacion-secciones {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 25px 0 35px;
+    }
+
+    .btn-seccion {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      
+      border-radius: 8px;
+      background: #f5c400;
+      color: #202124;
+      font-weight: 800;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-seccion:hover,
+    .btn-seccion:focus {
+      background: #ffda32;
+      color: #202124;
+      transform: translateY(-2px);
+    }
+
+    .titulo-seccion,
+    .lista-funcionarios {
+      scroll-margin-top: 25px;
+    }
+
+    /* Botón fijo para volver al inicio */
+    .btn-volver-arriba {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      
+      border-radius: 50%;
+      background: #f5c400;
+      color: #202124;
+      font-size: 25px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 3px 12px rgb(0 0 0 / 25%);
+      transition: background .2s, transform .2s;
+    }
+
+    .btn-volver-arriba:hover,
+    .btn-volver-arriba:focus {
+      background: #ffda32;
+      color: #202124;
+      transform: translateY(-3px);
+    }
+
     /* Títulos de las secciones de funcionarios */
     .titulo-seccion {
       color: #222222;
@@ -571,7 +635,7 @@
   </style>
 </head>
 
-<body>
+<body id="inicio">
   <div class="school-topbar" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -609,16 +673,22 @@
         <p class="subtitulo-funcionarios">
           Conoce al equipo de nuestra comunidad educativa.
         </p>
-        <h2 class="titulo-seccion">DIRECCIÓN</h2>
+        <nav class="navegacion-secciones" aria-label="Ir a una sección de funcionarios">
+          <a class="btn-seccion" href="#seccion-direccion">Dirección</a>
+          <a class="btn-seccion" href="#seccion-docentes">Docentes</a>
+          <a class="btn-seccion" href="#seccion-aula">Asistente de aula</a>
+          <a class="btn-seccion" href="#seccion-educacion">Asistente de la educación</a>
+        </nav>
+        <h2 id="seccion-direccion" class="titulo-seccion">DIRECCIÓN</h2>
         <div id="lista-direccion" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">DOCENTES</h2>
+        <h2 id="seccion-docentes" class="titulo-seccion">DOCENTES</h2>
         <div id="lista-docentes" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">ASISTENTE DE AULA</h2>
+        <h2 id="seccion-aula" class="titulo-seccion">ASISTENTE DE AULA</h2>
         <div id="lista-aula" class="lista-funcionarios"></div>
 
-        <h2 class="titulo-seccion">ASISTENTE DE LA EDUCACIÓN</h2>
+        <h2 id="seccion-educacion" class="titulo-seccion">ASISTENTE DE LA EDUCACIÓN</h2>
         <div id="lista-educacion" class="lista-funcionarios"></div>
 
       </div>
@@ -653,6 +723,8 @@
       <div class="container">Escuela República de Alemania · Rengo</div>
     </div>
   </footer>
+
+  <a class="btn-volver-arriba" href="#inicio" aria-label="Volver al inicio" title="Volver arriba">↑</a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script>
