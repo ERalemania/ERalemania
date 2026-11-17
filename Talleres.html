@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5c400">
+  <meta name="description" content="Sitio web de la Escuela República de Alemania, Rengo.">
+  <title>Escuela República de Alemania</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --amarillo: #f5c400;
+      --amarillo-claro: #fff4b8;
+      --gris: #e5e5e5;
+      --gris-oscuro: #5f6368;
+      --negro: #202124;
+      --rojo: #c62828;
+      --blanco: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--negro);
+      background: #f7f7f7;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .school-topbar {
+      min-height: 8px;
+      background: linear-gradient(90deg, var(--amarillo) 0 60%, var(--rojo) 60% 75%, var(--negro) 75%);
+    }
+
+    .site-header {
+      background: var(--blanco);
+      border-bottom: 1px solid #ddd;
+      box-shadow: 0 3px 14px rgb(0 0 0 / 7%);
+      position: relative;
+      z-index: 10;
+    }
+
+    .navbar {
+      padding: .75rem 0;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .brand-title {
+      font-weight: 800;
+      font-size: clamp(1rem, 2.2vw, 1.35rem);
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: -.025em;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: .3rem;
+      color: var(--gris-oscuro);
+      font-size: .82rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+    }
+
+    .navbar-toggler {
+      border: 2px solid var(--negro);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 .2rem rgb(245 196 0 / 45%);
+    }
+
+    .navbar-nav {
+      gap: .4rem;
+    }
+
+    .navbar-nav .nav-link {
+      padding: .7rem 1rem !important;
+      border-radius: .65rem;
+      font-weight: 700;
+      color: var(--negro);
+      transition: background .2s, color .2s;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link:focus {
+      background: var(--amarillo-claro);
+      color: var(--negro);
+    }
+
+    .navbar-nav .nav-link.active {
+      background: var(--amarillo);
+      color: var(--negro);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(3rem, 8vw, 6.5rem) 0;
+      background: var(--negro);
+      color: var(--blanco);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 390px;
+      height: 390px;
+      right: -110px;
+      top: -160px;
+      border-radius: 50%;
+      border: 58px solid rgb(245 196 0 / 18%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 250px;
+      height: 250px;
+      right: 12%;
+      bottom: -190px;
+      border-radius: 50%;
+      background: rgb(198 40 40 / 35%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--amarillo);
+      color: var(--negro);
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero h2 {
+      max-width: 780px;
+      margin: 1.25rem 0 1rem;
+      font-size: clamp(2.1rem, 5vw, 4.3rem);
+      line-height: 1.06;
+      font-weight: 900;
+      letter-spacing: -.045em;
+    }
+
+    .hero h2 span {
+      color: var(--amarillo);
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #e3e3e3;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.8;
+      margin-bottom: 1.7rem;
+    }
+
+    .btn-school {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .85rem 1.25rem;
+      border-radius: .65rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn-school:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-yellow {
+      background: var(--amarillo);
+      color: var(--negro);
+    }
+
+    .btn-yellow:hover {
+      background: #ffda32;
+      color: var(--negro);
+    }
+
+    .btn-outline-light {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .btn-outline-light:hover {
+      background: #fff;
+      color: var(--negro);
+    }
+
+    .welcome-section {
+      padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+    }
+
+    .section-kicker {
+      color: var(--rojo);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: .78rem;
+      letter-spacing: .12em;
+    }
+
+    .section-title {
+      margin: .5rem 0 1rem;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+
+    .welcome-copy {
+      color: #555;
+      max-width: 760px;
+      line-height: 1.8;
+    }
+
+    .info-card {
+      height: 100%;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      border-top: 5px solid var(--amarillo);
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 4%);
+    }
+
+    .info-card.red {
+      border-top-color: var(--rojo);
+    }
+
+    .info-card.gray {
+      border-top-color: #777;
+    }
+
+    .card-symbol {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 1rem;
+      border-radius: .8rem;
+      background: var(--amarillo-claro);
+      font-size: 1.4rem;
+    }
+
+    .info-card h3 {
+      font-size: 1.1rem;
+      font-weight: 850;
+    }
+
+    .info-card p {
+      margin: 0;
+      color: #5f6368;
+      line-height: 1.7;
+    }
+
+    footer {
+      background: #202124;
+      color: #fff;
+      border-top: 5px solid var(--rojo);
+    }
+
+    .footer-inner {
+      padding: 2rem 0;
+    }
+
+    .footer-heading {
+      margin-bottom: .75rem;
+      font-weight: 850;
+      color: var(--amarillo);
+    }
+
+    .footer-address {
+      color: #e1e1e1;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: .6rem .9rem;
+      border: 1px solid #656565;
+      border-radius: .6rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .social-link:hover {
+      background: var(--amarillo);
+      border-color: var(--amarillo);
+      color: var(--negro);
+    }
+
+    .footer-bottom {
+      padding: .9rem 0;
+      background: #151515;
+      color: #bbb;
+      font-size: .85rem;
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        padding-top: .85rem;
+      }
+
+      .navbar-nav .nav-link {
+        padding: .75rem 1rem !important;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-subtitle {
+        font-size: .72rem;
+      }
+
+      .hero {
+        padding: 3.25rem 0;
+      }
+
+      .hero .btn-school {
+        width: 100%;
+      }
+
+      .footer-inner {
+        padding: 1.6rem 0;
+      }
+    }
+
+
+    /* SECCIÓN DE TALLERES */
+    .talleres-section {
+      padding: 5rem 0;
+      background: #f5f5f5;
+    }
+
+    /* ENCABEZADO */
+    .talleres-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .talleres-header .section-kicker {
+      display: block;
+      margin-bottom: .7rem;
+      color: #c62828;
+      font-size: .85rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .talleres-title {
+      margin-bottom: 1rem;
+      color: #202124;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+    }
+
+    .talleres-intro {
+      max-width: 750px;
+      margin: 0;
+      color: #5f6368;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* TARJETA DEL TALLER */
+    .taller-card {
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 5%);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .taller-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
+    }
+
+    /* TITULO Y DATOS */
+    .taller-card-header {
+      padding: 1.5rem 1.5rem 1rem;
+      border-top: 6px solid #f5c400;
+    }
+
+    .taller-card:nth-child(even) .taller-card-header {
+      border-top-color: #c62828;
+    }
+
+    .taller-card-header h2 {
+      margin-bottom: 1rem;
+      color: #202124;
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .taller-info {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      color: #5f6368;
+      font-size: .95rem;
+    }
+
+    .taller-info strong {
+      color: #202124;
+    }
+
+    /* IMAGEN */
+    .taller-image {
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      background: #e5e5e5;
+    }
+
+    .taller-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* DESCRIPCIÓN */
+    .taller-description {
+      padding: 1.3rem 1.5rem 1.5rem;
+    }
+
+    .taller-description p {
+      margin: 0;
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* CELULARES */
+    @media (max-width: 575.98px) {
+      .talleres-section {
+        padding: 3rem 0;
+      }
+
+      .taller-card-header {
+        padding: 1.2rem 1.2rem .8rem;
+      }
+
+      .taller-card-header h2 {
+        font-size: 1.35rem;
+      }
+
+      .taller-image {
+        height: 220px;
+      }
+
+      .taller-description {
+        padding: 1rem 1.2rem 1.3rem;
+      }
+    }
+
+/* SECCIÓN DE TALLERES */
+.talleres-section {
+    padding: 5rem 0;
+    background: #f5f5f5;
+}
+
+/* ENCABEZADO */
+.talleres-header {
+    margin-bottom: 2.5rem;
+}
+
+.talleres-header .section-kicker {
+    display: block;
+    margin-bottom: .7rem;
+    color: #c62828;
+    font-size: .85rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.talleres-title {
+    margin-bottom: 1rem;
+    color: #202124;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+}
+
+.talleres-intro {
+    max-width: 750px;
+    margin: 0;
+    color: #5f6368;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* TARJETAS */
+.taller-card {
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 5%);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.taller-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 10%);
+}
+
+/* TITULO Y DATOS */
+.taller-card-header {
+    padding: 1.5rem;
+    border-top: 6px solid #f5c400;
+}
+
+.taller-card-header h2 {
+    margin-bottom: 1rem;
+    color: #202124;
+    font-size: 1.6rem;
+    font-weight: 900;
+}
+
+.taller-info {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    color: #5f6368;
+    font-size: .95rem;
+}
+
+.taller-info strong {
+    color: #202124;
+}
+
+/* CARRUSEL */
+.taller-carousel {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: #e5e5e5;
+}
+
+.taller-carousel .carousel-inner,
+.taller-carousel .carousel-item {
+    height: 100%;
+}
+
+.taller-carousel .carousel-item img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.taller-carousel .carousel-indicators {
+    margin-bottom: 12px;
+}
+
+.taller-carousel .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.taller-carousel .carousel-control-prev,
+.taller-carousel .carousel-control-next {
+    width: 20%;
+}
+
+/* DESCRIPCIÓN */
+.taller-description {
+    padding: 1.5rem;
+}
+
+.taller-description p {
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* CELULARES */
+@media (max-width: 575.98px) {
+    .talleres-section {
+        padding: 3rem 0;
+    }
+
+    .taller-card-header {
+        padding: 1.2rem;
+    }
+
+    .taller-card-header h2 {
+        font-size: 1.35rem;
+    }
+
+    .taller-carousel {
+        height: 500px;
+    }
+
+    .taller-carousel .carousel-item img {
+        height: 500px;
+    }
+
+    .taller-description {
+        padding: 1.2rem;
+    }
+
+    .taller-description p {
+        text-align: left;
+    }
+}
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="school-topbar" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand brand-wrap" href="/ERalemania/" aria-label="Escuela República de Alemania, inicio">
+          <img class="brand-logo" src="Resources/Logo_cua-290x290.png" alt="Logo de la escuela">
+          <span>
+            <span class="brand-title">Escuela República de Alemania</span>
+            <span class="brand-subtitle">Rengo · Comunidad educativa</span>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir o cerrar menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/ERalemania/">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nuevo_reglamento.html">Reglamento</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Funcionarios.html">Funcionarios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+
+    <main>
+
+      <section class="talleres-section">
+        <div class="container">
+
+          <!-- ENCABEZADO -->
+          <div class="talleres-header">
+            <span class="section-kicker">NUESTRAS ACTIVIDADES</span>
+            <h1 class="talleres-title">Talleres escolares</h1>
+            <p class="talleres-intro">
+              Espacios para aprender, desarrollar habilidades, descubrir
+              talentos y compartir nuevas experiencias.
+            </p>
+          </div>
+
+          <div class="row g-4">
+
+            <!-- ================================= -->
+            <!-- CINE ESTUDIANTIL -->
+            <!-- ================================= -->
+            <div class="col-12">
+              <article class="taller-card">
+
+                <div class="taller-card-header">
+                  <h2>Taller de Cine Estudiantil</h2>
+
+                  <div class="taller-info">
+                    <span><strong>Encargado:</strong>Yoendris Solis Garcia</span>
+                    <span><strong>Horario:</strong> Jueves de 15:50 A 17:00</span>
+                  </div>
+                </div>
+
+                <!-- CARRUSEL CINE ESTUDIANTIL -->
+                <div id="carruselCine" class="carousel slide taller-carousel" data-bs-ride="carousel">
+
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselCine" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Imagen 1"></button>
+
+                    <button type="button" data-bs-target="#carruselCine" data-bs-slide-to="1"
+                      aria-label="Imagen 2"></button>
+
+                    <button type="button" data-bs-target="#carruselCine" data-bs-slide-to="2"
+                      aria-label="Imagen 3"></button>
+                  </div>
+
+                  <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                      <img src="Resources/taller-futbol.jpg" class="d-block w-100"
+                        alt="Estudiantes en el taller de fútbol">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-futbol-2.jpg" class="d-block w-100"
+                        alt="Actividad del taller de fútbol">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-futbol-3.jpg" class="d-block w-100"
+                        alt="Participantes del taller de fútbol">
+                    </div>
+
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carruselFutbol"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+
+                  <button class="carousel-control-next" type="button" data-bs-target="#carruselFutbol"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
+
+                </div>
+
+                <div class="taller-description">
+                  <p>
+                    El Taller de Cine Estudiantil busca desarrollar habilidades comunicativas, creativas y digitales en los 
+                    estudiantes utilizando el lenguaje audiovisual como herramienta de espresión.<br>
+                    A través de la creación  de cápsulas audiovisuales, los estudiantes participarán activamente
+                    en la generaciòn de contenido para las redes sociales del establecimiento, fortaleciendo su sentido
+                    de pertenencia y su rol dentro de la comunidad educativa.<br>
+                    El taller incorpora instancias de creación colectiva, donde los estudiantes proponen, analizan y
+                    mejoran ideas en conjunto, promoviendo el pensamiento crìtico, la escucha activa y el trabajo colaborativo.<br>
+                    Se utilizarán recursos tecnológicos accesibles, permitiendo un aprendizaje práctico y significativo
+                    acorde a la realidad del establecimiento. 
+                  </p>
+                </div>
+
+              </article>
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- TALLER DE FUTSAL -->
+            <!-- ================================= -->
+            <div class="col-12">
+              <article class="taller-card">
+
+                <div class="taller-card-header">
+                  <h2>Taller de Futsal</h2>
+
+                  <div class="taller-info">
+                    <span><strong>Encargado:</strong> Alexis Rosales Lizama</span>
+                    <span><strong>Horario:</strong> Jueves de 16:00 A 17:30</span>
+                  </div>
+                </div>
+
+                <!-- CARRUSEL FUTSAL -->
+                <div id="carruselFutsal" class="carousel slide taller-carousel" data-bs-ride="carousel">
+
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselFutsal" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Imagen 1"></button>
+
+                    <button type="button" data-bs-target="#carruselFutsal" data-bs-slide-to="1"
+                      aria-label="Imagen 2"></button>
+
+                    <button type="button" data-bs-target="#carruselFutsal" data-bs-slide-to="2"
+                      aria-label="Imagen 3"></button>
+                  </div>
+
+                  <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                      <img src="https://i.postimg.cc/j2758f06/equipo.jpg" class="d-block w-100"
+                        alt="Estudiantes en el taller de futsal">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="https://i.postimg.cc/8c65yvQB/723838691-122261859926331844-6128501642626128612-n.jpg" class="d-block w-100" alt="Actividad musical">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="https://i.postimg.cc/W3Kz6nKf/721247796-122261752010331844-2134005297002305466-n.jpg" class="d-block w-100"
+                        alt="Participantes del taller de futsal">
+                    </div>
+
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carruselFutsal"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+
+                  <button class="carousel-control-next" type="button" data-bs-target="#carruselFutsal"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
+
+                </div>
+
+                <div class="taller-description">
+                  <p>
+                    El futsal es una disciplina deportiva que favorece el desarrolo integral de los estudiantes,
+                    promoviendo habilidades motrices, coordinación, resistencia y trabajo en equipo. A través de
+                    su práctica, se fomenta el respeto por las normas, la convivencia escolar y la toma de decisiones en situaciones dinámicas de juego.
+                    este taller busca generar un espacio formativo, recreativo y aprendizaje significativo.
+                  </p>
+                </div>
+
+              </article>
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- TALLER DE TENIS DE MESA -->
+            <!-- ================================= -->
+            <div class="col-12">
+              <article class="taller-card">
+
+                <div class="taller-card-header">
+                  <h2>Taller de Tenis de Mesa</h2>
+
+                  <div class="taller-info">
+                    <span><strong>Encargado:</strong>Cristian Alejandro Arancibia Moraga</span>
+                    <span><strong>Horario:</strong> Lunes de 15:50 A 15:40</span>
+                  </div>
+                </div>
+
+                <!-- CARRUSEL TENIS DE MESA -->
+                <div id="carruselTenisMesa" class="carousel slide taller-carousel" data-bs-ride="carousel">
+
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselTenisMesa" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Imagen 1"></button>
+
+                    <button type="button" data-bs-target="#carruselTenisMesa" data-bs-slide-to="1"
+                      aria-label="Imagen 2"></button>
+
+                    <button type="button" data-bs-target="#carruselTenisMesa" data-bs-slide-to="2"
+                      aria-label="Imagen 3"></button>
+                  </div>
+
+                  <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                      <img src="Resources/taller-tenis-mesa.jpg" class="d-block w-100" alt="Estudiantes en el taller de tenis de mesa">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-arte-2.jpg" class="d-block w-100" alt="Actividades artísticas">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-arte-3.jpg" class="d-block w-100"
+                        alt="Trabajos realizados por estudiantes">
+                    </div>
+
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carruselTenisMesa"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+
+                  <button class="carousel-control-next" type="button" data-bs-target="#carruselTenisMesa"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
+
+                </div>
+
+                <div class="taller-description">
+                  <p>
+                    El taller de Tenis de mesa una diciplina deportiva que favorece el desarrollo de habilidades motrices finas
+                    y gruesas, la coordinación óculo-manual, la concentración y la toma de decisiones. Ademas, promueve
+                    valores como el respeto, la responsabilidad , el autocontrol y el juego lmpio.
+                    <br>
+                    <br>
+                    Este taller permite ofrecer una alternativa recreativa y formativa, fomentando hábitos de vida activa y 
+                    saludable, así como la participación inclusiva de todos los estudiantes, independientemente de su nivel de habilidad.                  
+                  </p>
+                  
+                </div>
+
+              </article>
+            </div>
+            <!-- ================================= -->
+            <!-- TALLER DE TENIS -->
+            <!-- ================================= -->
+            <div class="col-12">
+              <article class="taller-card">
+
+                <div class="taller-card-header">
+                  <h2>Taller de Tenis</h2>
+
+                  <div class="taller-info">
+                    <span><strong>Encargado:</strong>Cristian Alejandro Arancibia Moraga</span>
+                    <span><strong>Horario:</strong>Miércoles de 15:50 a 16:40</span>
+                  </div>
+                </div>
+
+                <!-- CARRUSEL TENIS -->
+                <div id="carruselTenis" class="carousel slide taller-carousel" data-bs-ride="carousel">
+
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carruselTenis" data-bs-slide-to="0" class="active"
+                      aria-current="true" aria-label="Imagen 1"></button>
+
+                    <button type="button" data-bs-target="#carruselTenis" data-bs-slide-to="1"
+                      aria-label="Imagen 2"></button>
+
+                    <button type="button" data-bs-target="#carruselTenis" data-bs-slide-to="2"
+                      aria-label="Imagen 3"></button>
+                  </div>
+
+                  <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                      <img src="Resources/taller-tenis.jpg" class="d-block w-100" alt="Estudiantes en el taller de tenis">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-tenis-2.jpg" class="d-block w-100" alt="Actividades de tenis">
+                    </div>
+
+                    <div class="carousel-item">
+                      <img src="Resources/taller-tenis-3.jpg" class="d-block w-100"
+                        alt="Trabajos realizados por estudiantes">
+                    </div>
+
+                  </div>
+
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carruselTenis"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+
+                  <button class="carousel-control-next" type="button" data-bs-target="#carruselTenis"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                  </button>
+
+                </div>
+
+                <div class="taller-description">
+                  <p>
+                    El taller de tenis busca promover la actividad física, el desarrollo
+                    de habilidades motrices y la formación integral de los estudiantes a través
+                    de un deporte individual que también fomenta valores como el respeto, la diplina,
+                    perseverancia y el juego limpio.
+                  </p>
+                </div>
+
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </main>
+
+  <footer id="contacto">
+    <div class="container footer-inner">
+      <div class="row g-4">
+        <div class="col-12 col-md-3">
+          <h2 class="footer-heading h5">Redes sociales</h2>
+          <div class="social-links">
+            <a class="social-link" href="https://www.facebook.com/escuela.republica.de.alemania.rengo/" target="_blank"
+              rel="noopener noreferrer">Facebook ↗</a>
+            <a class="social-link" href="https://www.instagram.com/esc.republica.de.alemania/?hl=es" target="_blank"
+              rel="noopener noreferrer">Instagram ↗</a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="footer-heading h5">Dirección y contacto</h2>
+          <p class="footer-address">
+            Dirección y Codigo Postal: Av. Jose Ramiréz 540, Rengo 2940823<br>
+            <strong>Telefono: +569 7725 8405</strong><br>
+            Correo: esalemania@gmail.com
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">Escuela República de Alemania · Rengo</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
